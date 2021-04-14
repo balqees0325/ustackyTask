@@ -36,9 +36,91 @@ a {
   border-radius: 40px;
   background-color: #ff7a00;
   text-align: left;
+  outline: none;
 }
 .cart-btn button img {
   padding: 10px;
+}
+/* modal style */
+.modal-bg {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: -2rem;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.6);
+  visibility: hidden;  
+}
+.modal {
+  background-color: #fff;
+  width:40vw;
+  box-shadow: 5px 3px 3px;
+  position: relative;
+  z-index: 10;
+  margin: 1rem auto;
+  padding-bottom: 2.5rem;
+}
+.modal-bg.showModal {
+  visibility: visible;
+}
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+table th {
+  padding: 20px 50px;
+}
+form {
+  width: 80%;
+}
+.form-modal {
+  text-align: center;
+}
+input {
+  width: 100%;
+  padding: 10px 5px;
+  margin: 10px 50px;
+  background-color: #ffe9d6;
+}
+.error-msg {
+  color: red;
+  font-size: .9rem;
+  text-align: center;
+}
+/* price display */
+.total-price {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+}
+.total-price  .btn {
+  position: relative;
+}
+.btn button {
+ padding: 10px 20px;
+ border: none;
+ margin:  0;
+ border-radius: 4px;
+}
+.btn1 {
+  background-color: #ffe9d6;
+  width: 12vw;
+  position: absolute;
+  left: -4.5rem;
+  right:0;
+  top: 1rem;
+}
+.btn2 {
+  background-color: #ff7a00;
+  width: 12vw;
+  position: absolute;
+  left: 7.5rem;
+  right:0;
+  top: 1rem;
 }
 .intro {
   display: flex;
@@ -50,7 +132,6 @@ a {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  /* padding: 0 15rem 0 23rem; */
 }
  .intro-flex h2 {
   color: #ff7a00;
@@ -73,7 +154,7 @@ a {
   background-color: #000;
   text-align: center;
   padding: 1rem;
-  font-size: 1.2rem;
+  font-size: 2.5rem;
   color: #fff;
   line-height: 1.6;
 }
@@ -91,6 +172,7 @@ a {
    grid-template-columns: repeat(3, 1fr);
    margin: 20px 0;
  }
+ 
  .products h2 {
    font-size: 2rem;
    text-transform: uppercase;
@@ -105,6 +187,28 @@ a {
    font-weight: bold;
    margin: 20px 0;
  }
+ .product {
+   position: relative;
+ }
+.price {
+  position: absolute;
+   top: 0;
+   left: 6.29rem;
+   bottom: 7.1rem;
+   right: 6.4rem;
+   padding: 5rem auto 5rem;
+   text-align: center;
+   font-size: 3rem;
+   color: #fff;
+   border-radius: 6px;
+   background-color: rgba(0,0,0,0.6);
+   visibility: hidden;
+ }
+ 
+ .product:hover .price{
+   visibility: visible;
+ }
+
  /* footer style */
  .footer {
    background-color: #000;
@@ -121,6 +225,29 @@ a {
    margin-right: 15rem;
  }
  /* media query for tablet view*/
+ @media (max-width: 1024px) {
+   .product {
+   position: relative;
+ }
+.price {
+  position: absolute;
+   top: 0;
+   left: 1.2rem;
+   bottom: 7rem;
+   right: 1.2rem;
+   padding: 5rem auto;
+   text-align: center;
+   font-size: 3rem;
+   color: #fff;
+   border-radius: 6px;
+   background-color: rgba(0,0,0,0.6);
+   visibility: hidden;
+ }
+ 
+ .product:hover .price{
+   visibility: visible;
+ }
+ }
  @media (max-width:768px) {
   .nav a{
   padding: 10px;
@@ -139,9 +266,91 @@ a {
 .cart-btn button img {
   padding: 10px 10px 5px 10px;
 }
+/* modal style */
+.modal-bg {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 16.2rem;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.6);
+  visibility: hidden;  
+}
+.modal {
+  background-color: #fff;
+  width: 70%;
+  box-shadow: 5px 3px 3px;
+  position: relative;
+  z-index: 10;
+  margin: 1rem auto;
+  padding-bottom: 2.5rem;
+}
+.modal-bg.showModal {
+  visibility: visible;
+}
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+table th {
+  padding: 2rem;
+  font-size: 1rem;
+}
+form {
+  width: 80%;
+}
+.form-modal {
+  text-align: center;
+}
+input {
+  width: 100%;
+  padding: .5rem;
+  margin: .5rem 3rem;
+  background-color: #ffe9d6;
+}
+.error-msg {
+  color: red;
+  font-size: .9rem;
+  text-align: center;
+}
+/* price display */
+.total-price {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: .8rem 0;
+}
+.total-price  .btn {
+  position: relative;
+}
+.btn button {
+ padding: 10px 20px;
+ border: none;
+ margin:  0;
+ border-radius: 4px;
+}
+.btn1 {
+  background-color: #ffe9d6;
+  width: 25vw;
+  position: absolute;
+  left: -6.5rem;
+  right: 0;
+  top: 1rem;
+}
+.btn2 {
+  background-color: #ff7a00;
+  width: 22vw;
+  position: absolute;
+  left: 4.5rem;
+  right:0;
+  top: 1rem;
+}
 .intro-flex {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
  .intro-flex h2 {
@@ -161,6 +370,36 @@ a {
   border-radius: 4px;
   font-weight: bold;
   margin-bottom: 20px;
+}
+.product {
+   position: relative;
+ }
+.price {
+  position: absolute;
+   top: 0;
+   left: 2.5rem;
+   bottom: 6.6rem;
+   right: 2.5rem;
+   padding: 5rem auto;
+   text-align: center;
+   font-size: 3rem;
+   color: #fff;
+   border-radius: 6px;
+   background-color: rgba(0,0,0,0.6);
+   visibility: hidden;
+ }
+ 
+ .product:hover .price{
+   visibility: visible;
+ }
+/* about style */
+.about p {
+  background-color: #000;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.5rem;
+  color: #fff;
+  line-height: 1.6;
 }
 .shop h1 {
    font-size: 3rem;
@@ -194,25 +433,160 @@ a {
    .container {
      width: 100%;
    }
+   .navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
    .logo {
      display: none;
    }
     .nav a{
   padding: 10px;
-  font-size: 1.2rem;
+  font-size: .7rem;
   color: #333;
 }
 .cart-btn button {
   margin-top: 10px;
-  width: 30vw;
+  width: 20vw;
   border: none;
   border-radius: 38px;
   background-color: #ff7a00;
   text-align: left;
 }
 .cart-btn button img {
-  width: 15vw;
+  width: 10vw;
 }
+ .intro-flex h2 {
+  color: #ff7a00;
+  font-size: 1rem;
+} 
+/* modal style */
+.modal-bg {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 13.7rem;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.6);
+  visibility: hidden;  
+}
+.modal {
+  background-color: #fff;
+  width: 85%;
+  box-shadow: 5px 3px 3px;
+  position: relative;
+  z-index: 10;
+  margin: 1rem auto;
+  padding-bottom: 2.5rem;
+}
+.modal-bg.showModal {
+  visibility: visible;
+}
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+table th {
+  padding: .9rem;
+  font-size: .9rem;
+}
+form {
+  width: 80%;
+}
+.form-modal {
+  text-align: center;
+}
+input {
+  width: 100%;
+  padding: .4rem;
+  margin: .5rem 3rem;
+  background-color: #ffe9d6;
+}
+.error-msg {
+  color: red;
+  font-size: .7rem;
+  text-align: center;
+}
+/* price display */
+.total-price {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: .8rem 0;
+}
+.total-price  .btn {
+  position: relative;
+}
+.btn button {
+ padding: 10px 20px;
+ border: none;
+ margin:  0;
+ border-radius: 4px;
+}
+.btn1 {
+  background-color: #ffe9d6;
+  width: 45vw;
+  position: absolute;
+  left: -6.5rem;
+  right: 0;
+  top: 1rem;
+}
+.btn2 {
+  background-color: #ff7a00;
+  width: 22vw;
+  position: absolute;
+  left: 4.5rem;
+  right:0;
+  top: 1rem;
+}
+.intro-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+ .intro-flex h2 {
+  color: #ff7a00;
+  font-size: 3.8rem;
+} 
+.intro-flex img {
+  width: 45vw;
+}
+.intro-btn button {
+  width: 25vw;
+  font-size: 1.2rem;
+  padding: 20px 5px;
+  color: #fff;
+  background-color: #ff7a00;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.product {
+   position: relative;
+ }
+.price {
+  position: absolute;
+   top: 0;
+   left: 2.2rem;
+   bottom: 6.6rem;
+   right: 2.2rem;
+   padding: 5rem auto;
+   text-align: center;
+   font-size: 3rem;
+   color: #fff;
+   border-radius: 6px;
+   background-color: rgba(0,0,0,0.6);
+   visibility: hidden;
+ }
+ 
+ .product:hover .price{
+   visibility: visible;
+ }
 /*  */
 .intro {
   /* text-align: center; */
@@ -230,9 +604,6 @@ a {
   padding: 0;
   text-align: center;
 } 
-/* .intro-flex img {
-  width: ;
-} */
 .intro-btn button {
   width: 100%;
   font-size: 1.2rem;
@@ -243,6 +614,13 @@ a {
   border-radius: 4px;
   font-weight: bold;
   margin-bottom: 20px;
+}/* about style */
+.about p {
+  background-color: #000;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1rem;
+  color: #fff;
 }
 .shop h1 {
    font-size: 1.5rem;
