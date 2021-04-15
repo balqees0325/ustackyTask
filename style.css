@@ -142,12 +142,14 @@ input {
   width: 20vw;
   font-size: 1.2rem;
   padding: 20px 5px;
-  color: #fff;
   background-color: #ff7a00;
   border: none;
   border-radius: 4px;
   font-weight: bold;
   margin-bottom: 20px;
+}
+.intro-btn button a {
+  color: #fff;
 }
 /* about style */
 .about p {
@@ -170,7 +172,8 @@ input {
  .products {
    display: grid;
    grid-template-columns: repeat(3, 1fr);
-   margin: 20px 0;
+   gap: 2rem;
+   margin: 2rem;
  }
  
  .products h2 {
@@ -187,26 +190,36 @@ input {
    font-weight: bold;
    margin: 20px 0;
  }
- .product {
+ /* .product {
    position: relative;
+ } */
+ .img {
+  position: relative;
+ }
+ .image {
+  width: 100%;
  }
 .price {
   position: absolute;
-   top: 0;
-   left: 6.29rem;
-   bottom: 7.1rem;
-   right: 6.4rem;
-   padding: 5rem auto 5rem;
-   text-align: center;
-   font-size: 3rem;
-   color: #fff;
-   border-radius: 6px;
+   top:0;
+   left: 0;
+   bottom: 0;
+   right: 0;
    background-color: rgba(0,0,0,0.6);
-   visibility: hidden;
+   opacity: 0;
+   border-radius: 6px;
+   z-index: 1000;
  }
- 
- .product:hover .price{
-   visibility: visible;
+ .price h4 {
+   text-align: center;
+   color: #fff;
+   font-size: 5rem;
+  position: absolute;
+  top: 40%;
+  left: 24%;
+ }
+ .img:hover .price{
+   opacity: 1;
  }
 
  /* footer style */
@@ -226,26 +239,13 @@ input {
  }
  /* media query for tablet view*/
  @media (max-width: 1024px) {
-   .product {
-   position: relative;
- }
-.price {
-  position: absolute;
-   top: 0;
-   left: 1.2rem;
-   bottom: 7rem;
-   right: 1.2rem;
-   padding: 5rem auto;
+   .price h4 {
    text-align: center;
-   font-size: 3rem;
    color: #fff;
-   border-radius: 6px;
-   background-color: rgba(0,0,0,0.6);
-   visibility: hidden;
- }
- 
- .product:hover .price{
-   visibility: visible;
+   font-size: 3rem;
+  position: absolute;
+  top: 40%;
+  left: 22%;
  }
  }
  @media (max-width:768px) {
@@ -371,27 +371,7 @@ input {
   font-weight: bold;
   margin-bottom: 20px;
 }
-.product {
-   position: relative;
- }
-.price {
-  position: absolute;
-   top: 0;
-   left: 2.5rem;
-   bottom: 6.6rem;
-   right: 2.5rem;
-   padding: 5rem auto;
-   text-align: center;
-   font-size: 3rem;
-   color: #fff;
-   border-radius: 6px;
-   background-color: rgba(0,0,0,0.6);
-   visibility: hidden;
- }
- 
- .product:hover .price{
-   visibility: visible;
- }
+
 /* about style */
 .about p {
   background-color: #000;
@@ -409,7 +389,7 @@ input {
  .products {
    display: grid;
    grid-template-columns: repeat(2, 1fr);
-   margin: 20px 0;
+   margin: 2rem;
  }
  .products button {
    text-transform: uppercase;
@@ -420,6 +400,15 @@ input {
    border-radius: 4px;
    font-weight: bold;
    margin: 15px 0;
+ }
+ /* price hover effect */
+  .price h4 {
+   text-align: center;
+   color: #fff;
+   font-size: 3rem;
+   position: absolute;
+   top: 40%;
+   left: 24%;
  }
  .footer img {
    margin-left: 6rem;
@@ -443,7 +432,7 @@ input {
    }
     .nav a{
   padding: 10px;
-  font-size: .7rem;
+  font-size: 1rem;
   color: #333;
 }
 .cart-btn button {
@@ -566,28 +555,7 @@ input {
   font-weight: bold;
   margin-bottom: 20px;
 }
-.product {
-   position: relative;
- }
-.price {
-  position: absolute;
-   top: 0;
-   left: 2.2rem;
-   bottom: 6.6rem;
-   right: 2.2rem;
-   padding: 5rem auto;
-   text-align: center;
-   font-size: 3rem;
-   color: #fff;
-   border-radius: 6px;
-   background-color: rgba(0,0,0,0.6);
-   visibility: hidden;
- }
- 
- .product:hover .price{
-   visibility: visible;
- }
-/*  */
+ /*  */
 .intro {
   /* text-align: center; */
   display: flex;
@@ -619,7 +587,7 @@ input {
   background-color: #000;
   text-align: center;
   padding: 1rem;
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: #fff;
 }
 .shop h1 {
@@ -630,7 +598,7 @@ input {
  .products {
    display: grid;
    grid-template-columns: 1fr;
-   margin: 20px 0;
+   margin: 2rem;
  }
  .products button {
    text-transform: uppercase;
@@ -641,6 +609,15 @@ input {
    border-radius: 4px;
    font-weight: bold;
    margin: 15px 0;
+ }
+ /* price hover effect */
+  .price h4 {
+   text-align: center;
+   color: #fff;
+   font-size: 4rem;
+   position: absolute;
+   top: 40%;
+   left: 22%;
  }
  .footer {
    display: flex;
