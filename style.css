@@ -201,14 +201,14 @@ input {
  }
 .price {
   position: absolute;
-   top:0;
+   top: 0;
    left: 0;
    bottom: 0;
    right: 0;
    background-color: rgba(0,0,0,0.6);
    opacity: 0;
    border-radius: 6px;
-   z-index: 1000;
+   transition: all 0.5s ease-in-out 0s;
  }
  .price h4 {
    text-align: center;
@@ -239,6 +239,29 @@ input {
  }
  /* media query for tablet view*/
  @media (max-width: 1024px) {
+   .navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.nav a{
+  padding: 10px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.cart-btn button {
+  margin-top: 20px;
+  width: 15vw;
+  border: none;
+  border-radius: 40px;
+  background-color: #ff7a00;
+  text-align: left;
+  outline: none;
+}
+.cart-btn button img {
+  padding: 10px;
+}
    .price h4 {
    text-align: center;
    color: #fff;
@@ -247,7 +270,69 @@ input {
   top: 40%;
   left: 22%;
  }
+ /* modal style */
+.modal-bg {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 45%;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.6);
+  visibility: hidden;  
+}
+.modal {
+  background-color: #fff;
+  width: 80%;
+  box-shadow: 5px 3px 3px;
+  position: relative;
+  z-index: 10;
+  margin: 1rem auto;
+  padding-bottom: 3.5rem;
+}
+.total-price  .btn {
+  position: relative;
+} 
+.form-modal {
+  text-align: center;
+}
+input {
+  width: 100%;
+  padding: 10px 5px;
+  margin: 10px 50px;
+  background-color: #ffe9d6;
+}
+.error-msg {
+  color: red;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.btn button {
+ padding: 10px 20px;
+ border: none;
+ margin:  0;
+ font-size: 1.5rem;
+ font-weight: 700;
+ border-radius: 4px;
+}
+.btn1 {
+  background-color: #ffe9d6;
+  width: 30vw;
+  position: absolute;
+  left: -6.5rem;
+  right:0;
+  top: 1rem;
+}
+.btn2 {
+  background-color: #ff7a00;
+  width: 18vw;
+  position: absolute;
+  left: 13.5rem;
+  right:0;
+  top: 1rem;
+}
  }
+ /* media query at 768px */
  @media (max-width:768px) {
   .nav a{
   padding: 10px;
@@ -271,7 +356,7 @@ input {
   position: absolute;
   width: 100%;
   top: 0;
-  bottom: 16.2rem;
+  bottom: 34rem;
   left: 0;
   right: 0;
   background-color: rgba(0,0,0,0.6);
@@ -455,7 +540,7 @@ input {
   position: absolute;
   width: 100%;
   top: 0;
-  bottom: 13.7rem;
+  bottom: 12.5rem;
   left: 0;
   right: 0;
   background-color: rgba(0,0,0,0.6);
@@ -587,7 +672,7 @@ input {
   background-color: #000;
   text-align: center;
   padding: 1rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: #fff;
 }
 .shop h1 {
