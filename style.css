@@ -1,9 +1,7 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-body {
+html,body {
+  overflow-x: hidden;
+  margin: 0px;
+  width: 100%;
   color: #000;
   font-family: sans-serif;
 }
@@ -16,7 +14,7 @@ a {
 }
 /* intro/ landing page style */
 .landing-page {
-  background-color: #ffcd9e;
+  background-color: #ffddce;
 }
 .navbar {
   display: flex;
@@ -40,29 +38,6 @@ a {
 }
 .cart-btn button img {
   padding: 10px;
-}
-/* modal style */
-.modal-bg {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  bottom: -2rem;
-  left: 0;
-  right: 0;
-  background-color: rgba(0,0,0,0.6);
-  visibility: hidden;  
-}
-.modal {
-  background-color: #fff;
-  width:40vw;
-  box-shadow: 5px 3px 3px;
-  position: relative;
-  z-index: 10;
-  margin: 1rem auto;
-  padding-bottom: 2.5rem;
-}
-.modal-bg.showModal {
-  visibility: visible;
 }
 .close {
   position: absolute;
@@ -123,21 +98,43 @@ input {
   top: 1rem;
 }
 .intro {
+  padding: 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .intro-flex {
+  position: relative;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+}
+.w-100{
+  width: 100%;
+}
+.w-50{
+  width: 50%;
+}
+.w-75{
+  width: 57%;
+}
+.w-25{
+  width: 25%;
+}
+.px-3{
+  padding-left: 20px;
+  padding-right: 20px;
 }
  .intro-flex h2 {
   color: #ff7a00;
-  font-size: 6.5rem;
-  padding-left: 15rem;
+  font-size: 5rem;  
+  line-height: 1.5em;
 } 
+.intro-flex div{
+  position: relative;
+  right: 18%;
+}
 .intro-btn button {
   width: 20vw;
   font-size: 1.2rem;
@@ -153,13 +150,59 @@ input {
 }
 /* about style */
 .about p {
+  margin:0px;
   background-color: #000;
   text-align: center;
-  padding: 1rem;
+  padding: 4rem 1.2rem;
   font-size: 2.5rem;
   color: #fff;
-  line-height: 1.6;
+  line-height: 1.1;
 }
+
+/* modal style */
+.modal-bg {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  bottom: 12.5rem;
+  left: 0;
+  right: 0;
+  z-index: 12;
+  background-color: rgba(0,0,0,0.6);
+  display: none;  
+}
+.modal {
+  background-color: #fff;
+  width: 45%;
+  box-shadow: 5px 3px 3px;
+  position: relative;
+  top: 50px;
+  z-index: 10;
+  margin: 1rem auto;
+  padding-bottom: 2.5rem;
+
+  -webkit-animation-name: modal; /* Chrome, Safari, Opera */
+  -webkit-animation-duration: 0.5s; /* Chrome, Safari, Opera */
+  animation-name: modal;
+  animation-duration: 0.5s;
+  
+}
+.showModal {
+  display: block;
+}
+@-webkit-keyframes modal {
+    0%   {transform:scale(0.3)} 
+    100% {transform:scale(1)}
+}
+
+/* Standard syntax */
+@keyframes modal {
+    0%   {transform:scale(0.3)} 
+    100% {transform:scale(1)}
+}
+
+
 /* shop style */
  .shop {
    text-align: center;
@@ -170,13 +213,15 @@ input {
    text-transform: uppercase;
  }
  .products {
+   grid-template-rows: auto;
+   cursor: pointer;
    display: grid;
    grid-template-columns: repeat(3, 1fr);
    gap: 2rem;
    margin: 2rem;
  }
  
- .products h2 {
+ .products h2 {  
    font-size: 2rem;
    text-transform: uppercase;
  }
@@ -193,13 +238,22 @@ input {
  /* .product {
    position: relative;
  } */
- .img {
-  position: relative;
+ .cart-button{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
  }
+.cart-item{
+  color:white;
+  font-size: 3em;
+  font-weight: bold;
+}
  .image {
-  width: 100%;
+  width: 100%;  
+  height: 400px;
  }
-.price {
+.price {  
   position: absolute;
    top: 0;
    left: 0;
@@ -217,6 +271,9 @@ input {
   position: absolute;
   top: 40%;
   left: 24%;
+ }
+ .img{
+  position: relative;
  }
  .img:hover .price{
    opacity: 1;
@@ -270,26 +327,7 @@ input {
   top: 40%;
   left: 22%;
  }
- /* modal style */
-.modal-bg {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  bottom: 45%;
-  left: 0;
-  right: 0;
-  background-color: rgba(0,0,0,0.6);
-  visibility: hidden;  
-}
-.modal {
-  background-color: #fff;
-  width: 80%;
-  box-shadow: 5px 3px 3px;
-  position: relative;
-  z-index: 10;
-  margin: 1rem auto;
-  padding-bottom: 3.5rem;
-}
+
 .total-price  .btn {
   position: relative;
 } 
@@ -352,28 +390,7 @@ input {
   padding: 10px 10px 5px 10px;
 }
 /* modal style */
-.modal-bg {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  bottom: 34rem;
-  left: 0;
-  right: 0;
-  background-color: rgba(0,0,0,0.6);
-  visibility: hidden;  
-}
-.modal {
-  background-color: #fff;
-  width: 70%;
-  box-shadow: 5px 3px 3px;
-  position: relative;
-  z-index: 10;
-  margin: 1rem auto;
-  padding-bottom: 2.5rem;
-}
-.modal-bg.showModal {
-  visibility: visible;
-}
+
 .close {
   position: absolute;
   top: 1rem;
@@ -433,18 +450,35 @@ input {
   right:0;
   top: 1rem;
 }
-.intro-flex {
+.float-left{
+  float: left;
+}
+
+.float-left{
+  float: left;
+}
+.d-flex{
   display: flex;
+}
+.flex-between{
   justify-content: space-between;
+}
+.flex-center{
+  flex-wrap: wrap;
   align-items: center;
 }
+.intro-flex, div.intro-flex{
+  
+/*  display: flex;
+  justify-content: space-between;
+  align-items: center;*/
+}
+
  .intro-flex h2 {
   color: #ff7a00;
   font-size: 3.8rem;
 } 
-.intro-flex img {
-  width: 45vw;
-}
+
 .intro-btn button {
   width: 25vw;
   font-size: 1.2rem;
@@ -535,29 +569,8 @@ input {
   color: #ff7a00;
   font-size: 1rem;
 } 
-/* modal style */
-.modal-bg {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  bottom: 12.5rem;
-  left: 0;
-  right: 0;
-  background-color: rgba(0,0,0,0.6);
-  visibility: hidden;  
-}
-.modal {
-  background-color: #fff;
-  width: 85%;
-  box-shadow: 5px 3px 3px;
-  position: relative;
-  z-index: 10;
-  margin: 1rem auto;
-  padding-bottom: 2.5rem;
-}
-.modal-bg.showModal {
-  visibility: visible;
-}
+
+
 .close {
   position: absolute;
   top: 1rem;
@@ -626,9 +639,9 @@ input {
   color: #ff7a00;
   font-size: 3.8rem;
 } 
-.intro-flex img {
+/*.intro-flex img {
   width: 45vw;
-}
+}*/
 .intro-btn button {
   width: 25vw;
   font-size: 1.2rem;
@@ -722,3 +735,90 @@ input {
  }
  }
 
+@media  screen and (max-width: 498px) {
+  .modal {
+    width: 90% !important; 
+  }
+    .intro-flex h2{      
+      font-size: 3em;
+    }
+    .intro-flex img{
+      width: 300px;
+      
+
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media screen and (min-width: 499px) {
+  .intro{    
+    margin-top: 9px;
+    padding: 5px 40px;
+  }
+  .intro-flex h2{   
+  font-size: 3.5em;    
+    text-align: center;
+    margin: 7px auto;      
+    }
+    .intro-flex{
+      display: block;
+      width: 100%;
+      margin: 5px auto;
+    }
+    .intro-flex img{
+      margin: 5px auto;
+      display: block;
+      width: 400px;
+    }
+  .modal {
+    width: 95%; 
+  }
+ }
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) { 
+   .intro-flex h2{   
+    text-align: left;
+    width: 300px;
+    font-size: 4.5em;
+   }
+    .intro-flex img{
+      width: 45%;
+    }
+  .intro-flex{
+      display: flex;
+      justify-content: space-between;      
+  }
+   .modal {
+    width: 55%; 
+  }
+ }
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {  }
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {  }
+.table{
+  width: 86%;
+  margin: 4px auto;
+}
+table.table thead{  
+  text-align: left;
+}
+.timesbtn{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background:pink;  
+  color:black;
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+.timesbtn:active{
+  box-shadow: inset #444 1px 2px 7px;
+}
