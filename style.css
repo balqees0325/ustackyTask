@@ -803,15 +803,20 @@ input {
   width: 86%;
   margin: 4px auto;
 }
-table.table thead{  
+thead th{
+  padding: 10px 0px;  
   text-align: left;
 }
+tr td{
+  padding: 10px 0px;  
+  text-align: left; 
+}
 .timesbtn{
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background:pink;  
-  color:black;
+  padding: 3px 6px;
+  width: 80px;
+  border-radius: 5px;
+  background:orange;  
+  color:white;
   cursor: pointer;
   display: flex;
   flex-wrap: wrap;
@@ -819,6 +824,23 @@ table.table thead{
   justify-content: center;
   user-select: none;
 }
-.timesbtn:active{
-  box-shadow: inset #444 1px 2px 7px;
+
+.added-cart{
+  opacity: .7;
+}
+.cart-qty:first-child{
+  padding: 0px 7px 2px 7px;
+  line-height: 0;
+}
+.cart-qty{  
+  cursor: pointer;
+  width: 15px;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: orange;
+  color:white;
+  user-select: none;
+}
+.cart-qty:active,.timesbtn:active{
+  box-shadow: inset #444 0px 1px 4px;
 }

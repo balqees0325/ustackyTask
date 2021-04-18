@@ -108,22 +108,34 @@ var productData = {
 	},
 	html: function(){
 		let div = '';
+		let $this = this;
+		let itemInCart, truth = false; 
 		for (var i = 0; i < this.products.length; i++) {
-			this.products[i].index;
-			this.products[i].id;
-			this.products[i].name;
+		
 			div +=		
 			'<div class="product">'+
 		      	'<div class="prt-2">'+
 			        '<div class="img">'+
 			        '<img class="image" src="'+this.products[i].image+'" alt="product1">'+
 			        '<div class="price">'+
-			        '<h4>'+this.products[i].price+'</h4>'+
+			        '<h4><span>&#8358;</span>'+this.products[i].price+'</h4>'+
 			        '</div>'+
 			        '</div>'+
-			        '<h2>Pixel 4a</h2>'+
-			        '<button data-name="'+this.products[i].name+'" data-id="'+this.products[i].id+'" data-price="'+this.products[i].price+'" onclick="addToCart(event)">add to cart</button>'+
-		      '</div>'+
+			        '<h2>Pixel 4a</h2>';
+					itemInCart = JSON.parse(localStorage.getItem('cartItems'));	
+					if (itemInCart != null) {						
+						itemInCart.forEach(function(e,index){				
+							if (e.name === $this.products[i].name) {							        		
+								truth = true
+							}
+						})
+					}							
+					if (truth) {
+						div +=  '<button class="added-cart" data-state="1" data-name="'+$this.products[i].name+'" data-id="'+$this.products[i].id+'" data-price="'+$this.products[i].price+'" onclick="addToCart(event)">remove from cart</button>';							
+					}else{
+						div += '<button data-state="0" data-name="'+$this.products[i].name+'" data-id="'+$this.products[i].id+'" data-price="'+$this.products[i].price+'" onclick="addToCart(event)">add to cart</button>';
+					}
+			div +='</div>'+
 		  	'</div>';
 		}
 		return div;
@@ -145,12 +157,13 @@ var cart = {
 				})
 		if (ch) {
 			this.items[ch].quantity += 1;
-			this.update()
+			this.items[ch].price = price * this.items[ch].quantity;
+			this.update();
 		}else{
 			this.items.push({id: id, name:name, price:price, quantity:1});
 			this.update()
+			cart.count = this.items.length;
 		}
-		cart.count = this.items.length;
 		localStorage.setItem('cartItems',JSON.stringify(this.items));
 	},
 	count:0,
@@ -171,9 +184,9 @@ var cart = {
 				html += `<tr>
 							<td>${i+1}</td>
 							<td>${this.items[i].name}</td>
-							<td>${this.items[i].price}</td>
-							<td>${this.items[i].quantity}</td>
-							<td><span class='timesbtn' onclick='removeItemFromCart("${this.items[i].id}")'>&times</span></td>
+							<td><span>&#8358</span> ${this.items[i].price}</td>
+							<td><span onclick="incrementCartItem('${this.items[i].id}',-1)" class="cart-qty">-</span> ${this.items[i].quantity} <span class="cart-qty" onclick="incrementCartItem('${this.items[i].id}',1)" >+</span></td>
+							<td><span class='timesbtn' onclick='removeItemFromCart("${this.items[i].id}")'>remove</span></td>
 						</tr>
 				    `;
 		}
@@ -187,6 +200,28 @@ var cart = {
 			if (e.id == id) {
 				$this.items.splice(index,1);
 				$this.count = $this.items.length;
+				localStorage.setItem('cartItems',JSON.stringify($this.items));								
+
+			}
+		})
+	},
+	incrementCartItem(id, type){
+		let $this = this;
+		this.items.forEach(function(e,index){
+			if (e.id == id) {
+				let price = $this.items[index].price/$this.items[index].quantity;
+				if (type ==1) {					
+					$this.items[index].quantity +=1;
+					$this.items[index].price = price * $this.items[index].quantity;				
+				}else{
+					if ($this.items[index].quantity > 1) {
+						$this.items[index].quantity -=1;
+						$this.items[index].price = price * $this.items[index].quantity;				
+					}else{
+						alert('minimum reached');
+					}
+
+				}
 				localStorage.setItem('cartItems',JSON.stringify($this.items));								
 
 			}
@@ -206,8 +241,13 @@ var cartUpdater = function() {
 	document.querySelector('.cart-item').innerHTML= cart.count;		
 }
 var removeItemFromCart= function(id){	
+	let evt = document.querySelector(`[data-id=${id}]`);
+	evt.classList.remove('added-cart');
+	evt.setAttribute('data-state',0);
+	evt.innerHTML = "add to cart";
 	cart.deleteItem(id);
 	cartUpdater();
+
 }
 var clearCart = function() {
 	cart.clearCart();
@@ -219,14 +259,32 @@ var localData = function(){
 		cartUpdater();
 	}
 }
-
+function incrementCartItem(id,type) {
+	if (type == 1) {	
+		cart.incrementCartItem(id, 1);
+	}else if(type == -1){
+		cart.incrementCartItem(id, -1);
+	}
+	cartUpdater();
+}
 
 function addToCart(event) {
-	let evt = event.target;
+	let evt = event.target;	
+	let state =	evt.getAttribute('data-state');
 	let price =	evt.getAttribute('data-price');
 	let name =	evt.getAttribute('data-name');	
-	let id =	evt.getAttribute('data-id');	
-	cart.setter(name,price,id)		
+	let id =	evt.getAttribute('data-id');		
+	if (Number(state) === 0) {
+		evt.classList.add('added-cart');
+		evt.setAttribute('data-state',1);
+		evt.innerHTML = "remove from cart";
+		cart.setter(name,price,id)		
+	}else if(Number(state) === 1){
+		evt.classList.remove('added-cart');
+		evt.setAttribute('data-state',0);
+		evt.innerHTML = "add to cart";
+		cart.deleteItem(id);
+	}
 	cartUpdater();
 }
 localData();
