@@ -1,3 +1,4 @@
+// modal toggle.
 const modal = document.querySelector('.modal-bg');
 const cartButton = document.querySelector('.cart-button');
 const continueShopBtn = document.querySelector(".btn1");
@@ -97,7 +98,75 @@ var products = [
 		price: 75000,
 	},
 ];
+//array of products items.
 
 
+const addToCartButtons = document.querySelectorAll('.addToCart');
+const cartCount = document.querySelector(".cart-btn span");
+Array.from(addToCartButtons).forEach(
+	item => {
+		item.addEventListener('click', function() {
+			if (item.innerText === "ADD TO CART") {
+				let dataId = this.getAttribute("data-id");
+				console.log(dataId);
+				item.innerText = "Remove from Cart";
+				item.style.backgroundColor = "#ffcd9e";
+				cartCount.innerText++;
+				itemsArray = [];
+				// console.log(itemsArray);
+				itemsArray.push(products[dataId]);
+				//save to localstorage.
+				if (localStorage.getItem("cart") === null) {
+					var cart = [];
+					cart.push(products[dataId]);
+					localStorage.setItem("cart", JSON.stringify(cart));
+				} else {
+					var cart = JSON.parse(localStorage.getItem("cart"));
+					cart.push(products[dataId]);
+					localStorage.setItem("cart", JSON.stringify(cart));
+				}
+				// end of save to localstorage.
 
-
+			} else{
+				item.innerText = "ADD TO CART";
+				item.style.backgroundColor = "#ff7a00";
+				cartCount.innerText--;
+				deleteCart();
+			}
+		})
+	}
+)
+// delete cart function.
+const deleteCart = () => {
+	// start of array.from
+	Array.from(addToCartButtons).forEach(prodcutClicked => {
+		prodcutClicked.addEventListener('click', function() {
+			let data = this.getAttribute("data-id");
+				console.log(data);
+			var cart = JSON.parse(localStorage.getItem("cart"));
+			cart.forEach((btn) => {
+				if(btn.index === data){
+					cart.splice(btn.index, 1);
+					console.log(data);
+					localStorage.setItem("cart", JSON.stringify(cart));
+				}
+			});
+			
+		})
+	})
+	// end of array.from
+	
+}
+// display cart function.
+const displayCartItem = () => {
+	var cart = JSON.parse(localStorage.getItem("cart"));
+	const displayCart = document.querySelector('displayCart');
+	displayCart.innerHTML = '';
+	cart.forEach(item => {
+		var productName = cart.name
+		var productPrice = cart.price;
+		var productPlus = '-';
+		var productMinus = '+';
+		var productQuantity = 0;
+	})
+}

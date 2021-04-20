@@ -28,18 +28,26 @@ a {
   font-size: 1.5rem;
   color: #333;
 }
-
+.nav a:active {
+  color: #ff0000;
+}
 .cart-btn button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 20px;
-  width: 10vw;
+  width: 9vw;
   border: none;
   border-radius: 40px;
   background-color: #ff7a00;
   text-align: left;
   outline: none;
+  padding: 0.5rem 1.5rem 0rem 0.4rem;
+  cursor: pointer;
 }
-.cart-btn button img {
-  padding: 10px;
+.cart-btn span {
+  font-size: 2rem;
+  color: #fff;
 }
 /* modal style */
 .modal-bg {
@@ -60,26 +68,46 @@ a {
   z-index: 10;
   margin: 1rem auto;
   padding-bottom: 2.5rem;
+  letter-spacing: 1.2;
 }
 .modal-bg.showModal {
   visibility: visible;
 }
 .close {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 0;
+  right: 0;
+  background-color: #ff7a00;
+  padding: .3rem;
+  cursor: pointer;
 }
-table th {
-  padding: 20px 50px;
+table th, table td {
+  padding: 20px 25px;
 }
-form {
-  width: 80%;
+table td span:nth-child(1), table td span:nth-child(3) {
+  background-color: #ff7a00;
+  padding: 0.3rem .8rem;
+  border: none;
+  border-radius: 8px;
+  margin: .5rem 0 .5rem; 
+  color: #fff;
+}
+table td span:nth-child(2) {
+  padding: .5rem;
+  font-size: 1rem;
+} 
+table td button {
+  font-weight: bold;
+  padding: .6rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #ffcd9e;
 }
 .form-modal {
   text-align: center;
 }
 input {
-  width: 100%;
+  width: 80%;
   padding: 10px 5px;
   margin: 10px 50px;
   background-color: #ffe9d6;
@@ -97,6 +125,9 @@ input {
   align-items: center;
   padding: 15px 0;
 }
+.total-price h1::before {
+content: ' \20A6 ';
+}
 .total-price  .btn {
   position: relative;
 }
@@ -105,6 +136,8 @@ input {
  border: none;
  margin:  0;
  border-radius: 4px;
+ cursor: pointer;
+ font-weight: bold;
 }
 .btn1 {
   background-color: #ffe9d6;
@@ -121,6 +154,7 @@ input {
   left: 7.5rem;
   right:0;
   top: 1rem;
+  color: #fff;
 }
 .intro {
   display: flex;
@@ -180,15 +214,17 @@ input {
    font-size: 2rem;
    text-transform: uppercase;
  }
- .products button {
+ .products .addToCart {
    text-transform: uppercase;
    background-color: #ff7a00;
    border: none;
    width: 15vw;
-   padding: 9px 18px;
+   padding: 12px 18px;
    border-radius: 4px;
    font-weight: bold;
    margin: 20px 0;
+   outline: none;
+   cursor: pointer;
  }
  /* .product {
    position: relative;
@@ -203,20 +239,32 @@ input {
   position: absolute;
    top: 0;
    left: 0;
-   bottom: 0;
+   bottom: 0.2rem;
    right: 0;
    background-color: rgba(0,0,0,0.6);
    opacity: 0;
-   border-radius: 6px;
+   border-radius: 12px;
    transition: all 0.5s ease-in-out 0s;
+ }
+ .price p {
+   text-align: center;
+   color: #fff;
+   position: absolute;
+  top: 35%;
+  left: 43%;
+  font-size: 2rem;
+  text-decoration: underline;
  }
  .price h4 {
    text-align: center;
    color: #fff;
    font-size: 5rem;
   position: absolute;
-  top: 40%;
-  left: 24%;
+  top: 50%;
+  left: 20%;
+ }
+ .price h4::before {
+   content: ' \20A6 ';
  }
  .img:hover .price{
    opacity: 1;
@@ -249,7 +297,9 @@ input {
   font-size: 1.5rem;
   color: #333;
 }
-
+.nav a:active {
+  color: #ff0000;
+}
 .cart-btn button {
   margin-top: 20px;
   width: 15vw;
@@ -262,13 +312,54 @@ input {
 .cart-btn button img {
   padding: 10px;
 }
-   .price h4 {
+ .products .addToCart {
+   text-transform: uppercase;
+   background-color: #ff7a00;
+   border: none;
+   width: 25vw;
+   padding: 12px 18px;
+   border-radius: 4px;
+   font-weight: bold;
+   margin: 20px 0;
+   outline: none;
+   cursor: pointer;
+ }
+ /* .product {
+   position: relative;
+ } */
+ .img {
+  position: relative;
+ }
+ .image {
+  width: 100%;
+ }
+.price {
+  position: absolute;
+   top: 0;
+   left: 0;
+   bottom: 0.2rem;
+   right: 0;
+   background-color: rgba(0,0,0,0.6);
+   opacity: 0;
+   border-radius: 12px;
+   transition: all 0.5s ease-in-out 0s;
+ }
+ .price p {
    text-align: center;
    color: #fff;
-   font-size: 3rem;
+   position: absolute;
+  top: 35%;
+  left: 40%;
+  font-size: 2rem;
+  text-decoration: underline;
+ }
+ .price h4 {
+   text-align: center;
+   color: #fff;
+   font-size: 3.5rem;
   position: absolute;
-  top: 40%;
-  left: 22%;
+  top: 50%;
+  left: 10%;
  }
  /* modal style */
 .modal-bg {
@@ -339,7 +430,9 @@ input {
   font-size: 1.2rem;
   color: #333;
 }
-
+.nav a:active {
+  color: #ff0000;
+}
 .cart-btn button {
   margin-top: 10px;
   width: 20vw;
@@ -347,6 +440,7 @@ input {
   border-radius: 38px;
   background-color: #ff7a00;
   text-align: left;
+  cursor: pointer;
 }
 .cart-btn button img {
   padding: 10px 10px 5px 10px;
@@ -476,24 +570,55 @@ input {
    grid-template-columns: repeat(2, 1fr);
    margin: 2rem;
  }
- .products button {
+ .products .addToCart {
    text-transform: uppercase;
    background-color: #ff7a00;
    border: none;
-   width: 25vw;
-   padding: 10px 18px;
+   width:30vw;
+   font-weight: bold;
+   padding: 12px 18px;
    border-radius: 4px;
    font-weight: bold;
-   margin: 15px 0;
+   margin: 20px 0;
+   outline: none;
+   cursor: pointer;
  }
- /* price hover effect */
-  .price h4 {
+ /* .product {
+   position: relative;
+ } */
+ .img {
+  position: relative;
+ }
+ .image {
+  width: 100%;
+ }
+.price {
+  position: absolute;
+   top: 0;
+   left: 0;
+   bottom: 0.2rem;
+   right: 0;
+   background-color: rgba(0,0,0,0.6);
+   opacity: 0;
+   border-radius: 12px;
+   transition: all 0.5s ease-in-out 0s;
+ }
+ .price p {
+   text-align: center;
+   color: #fff;
+   position: absolute;
+  top: 35%;
+  left: 43%;
+  font-size: 2rem;
+  text-decoration: underline;
+ }
+ .price h4 {
    text-align: center;
    color: #fff;
    font-size: 3rem;
-   position: absolute;
-   top: 40%;
-   left: 24%;
+  position: absolute;
+  top: 50%;
+  left: 20%;
  }
  .footer img {
    margin-left: 6rem;
@@ -517,19 +642,31 @@ input {
    }
     .nav a{
   padding: 10px;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #333;
 }
+.nav a:active {
+  color: #ff0000;
+}
 .cart-btn button {
-  margin-top: 10px;
-  width: 20vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  width: 25vw;
   border: none;
-  border-radius: 38px;
+  border-radius: 40px;
   background-color: #ff7a00;
   text-align: left;
+  outline: none;
+  padding: 0rem 1.5rem 0rem 0rem;
+  cursor: pointer;
 }
 .cart-btn button img {
-  width: 10vw;
+  width: 3rem;
+}
+.cart-btn button span {
+  font-size: 1.5rem;
 }
  .intro-flex h2 {
   color: #ff7a00;
@@ -540,7 +677,7 @@ input {
   position: absolute;
   width: 100%;
   top: 0;
-  bottom: 12.5rem;
+  bottom: 11.5rem;
   left: 0;
   right: 0;
   background-color: rgba(0,0,0,0.6);
@@ -560,8 +697,8 @@ input {
 }
 .close {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 0;
+  right: 0;
 }
 table th {
   padding: .9rem;
@@ -600,22 +737,27 @@ input {
  border: none;
  margin:  0;
  border-radius: 4px;
+ font-weight: bold;
+ font-size: .8rem;
+ text-align: center;
 }
 .btn1 {
   background-color: #ffe9d6;
   width: 45vw;
   position: absolute;
-  left: -6.5rem;
+  left: -7rem;
   right: 0;
   top: 1rem;
 }
 .btn2 {
   background-color: #ff7a00;
-  width: 22vw;
+  width: 25vw;
   position: absolute;
-  left: 4.5rem;
+  left: 3.7rem;
   right:0;
   top: 1rem;
+  color: #fff;
+
 }
 .intro-flex {
   display: flex;
@@ -685,24 +827,54 @@ input {
    grid-template-columns: 1fr;
    margin: 2rem;
  }
- .products button {
+ .products .addToCart {
    text-transform: uppercase;
    background-color: #ff7a00;
    border: none;
-   width: 50%;
-   padding: 10px 18px;
+   width: 70vw;
+   padding: 12px 18px;
    border-radius: 4px;
    font-weight: bold;
-   margin: 15px 0;
+   margin: 20px 0;
+   outline: none;
+   cursor: pointer;
  }
- /* price hover effect */
-  .price h4 {
+ /* .product {
+   position: relative;
+ } */
+ .img {
+  position: relative;
+ }
+ .image {
+  width: 100%;
+ }
+.price {
+  position: absolute;
+   top: 0;
+   left: 0;
+   bottom: 0.2rem;
+   right: 0;
+   background-color: rgba(0,0,0,0.6);
+   opacity: 0;
+   border-radius: 12px;
+   transition: all 0.5s ease-in-out 0s;
+ }
+ .price p {
    text-align: center;
    color: #fff;
-   font-size: 4rem;
    position: absolute;
-   top: 40%;
-   left: 22%;
+  top: 35%;
+  left: 40%;
+  font-size: 2rem;
+  text-decoration: underline;
+ }
+ .price h4 {
+   text-align: center;
+   color: #fff;
+   font-size: 3rem;
+  position: absolute;
+  top: 50%;
+  left: 20%;
  }
  .footer {
    display: flex;

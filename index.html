@@ -20,7 +20,7 @@
       <a href="#shop">Shop</a>
       </div>
       <div class="cart-btn">
-        <button class="cart-button" ><img src="./Images/cart.svg" alt="cart-icon"></button>
+        <button class="cart-button" ><img src="./Images/cart.svg" alt="cart-icon"><span>0</span></button>
       </div>
     </div>
     <!-- modal -->
@@ -36,7 +36,15 @@
               <th>Price</th>
               <th>Quantity</th>
             </tr>
+            <tr class="displayCart">
+              <td>1</td>
+              <td>Samsung Tv</td>
+              <td>500,000</td>
+              <td><span>-</span><span>2</span><span>+</span></td>
+              <td><button class="remove-btn">Remove</button></td>
+            </tr>
           </table>
+        
         </div>
         <!-- modal form -->
         <div class="modal-form">
@@ -63,7 +71,7 @@
         <!-- total price display -->
         <div class="total-price">
           <h2>Total Amount to be Paid</h2>
-          <h1>#0 </h1>
+          <h1>0</h1>
           <div class="btn">
             <button class="btn1">Continue Shopping</button>
             <button class="btn2">Checkout</button>
@@ -97,11 +105,12 @@
         <div class="img">
         <img class="image" src="./Images/product1.png" alt="product1">
         <div class="price">
-        <h4>500000</h4>
+        <p>Price</p>
+        <h4>500,000</h4>
         </div>
         </div>
         <h2>Samsung tv</h2>
-        <button>add to cart</button>
+        <button data-id="0" class="addToCart">Add to Cart</button>
       </div>
       </div>
     <!-- product 2 -->
@@ -110,11 +119,12 @@
         <div class="img">
         <img class="image" src="./Images/product2.png" alt="product1">
         <div class="price">
-        <h4>250000</h4>
+         <p>Price</p>
+         <h4>250,000</h4>
         </div>
         </div>
         <h2>Pixel 4a</h2>
-        <button>add to cart</button>
+        <button data-id="1" class="addToCart">Add to Cart</button>
       </div>
       </div>
     <!-- product 3 -->
@@ -123,11 +133,12 @@
         <div class="img">
         <img class="image" src="./Images/product3.png" alt="product1">
         <div class="price">
-         <h4>300000</h4>
+         <p>Price</p>
+         <h4>300,000</h4>
         </div>
         </div>
         <h2>Ps 5</h2>
-        <button>add to cart</button>
+        <button data-id="2" class="addToCart">Add to Cart</button>
       </div>
       </div>
        <!-- product 4 -->
@@ -136,11 +147,13 @@
         <div class="img">
         <img class="image" src="./Images/product4.png" alt="product1">
         <div class="price">
-        <h4>800000</h4>
+        <p>Price</p>
+         <p>Price</p>
+         <h4>800,000</h4>
       </div>
         </div>
         <h2>Macbook air</h2>
-        <button>add to cart</button>
+        <button data-id="3" class="addToCart">Add to Cart</button>
       </div>
       </div>
        <!-- product 5 -->
@@ -149,11 +162,12 @@
         <div class="img">
         <img class="image" src="./Images/product5.png" alt="product1">
         <div class="price">
-        <h4>95000</h4>
+          <p>Price</p>
+          <h4>95,000</h4>
         </div>
         </div>
         <h2>AppleWatch</h2>
-        <button>add to cart</button>
+        <button data-id="4" class="addToCart">Add to Cart</button>
       </div>
       </div>
        <!-- product 6 -->
@@ -162,11 +176,12 @@
         <div class="img">
         <img class="image" src="./Images/product6.png" alt="product1">
         <div class="price">
-        <h4>75000</h4>
+          <p>Price</p>
+          <h4>75,000</h4>
       </div>
-        </div>
+      </div>
         <h2>Air pods</h2>
-        <button>add to cart</button>
+        <button data-id="5" class="addToCart" >Add to Cart</button>
       </div>
     </div>
     </div>
