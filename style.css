@@ -269,7 +269,88 @@ content: ' \20A6 ';
  .img:hover .price{
    opacity: 1;
  }
-
+ /* paystack form */ 
+ #paymentForm {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: -2rem;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.6);
+  visibility: hidden;  
+}
+.form-groupl {
+  background-color: #fff;
+  width:40vw;
+  box-shadow: 5px 3px 3px;
+  position: relative;
+  z-index: 10;
+  margin: 1rem auto;
+  padding-bottom: 2.5rem;
+  letter-spacing: 1.2;
+}
+#paymentForm.modal {
+  visibility: visible;
+}
+ /* summary modal */
+ .summary-modal-bg {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: -2rem;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.6);
+  visibility: hidden;  
+}
+.summary-modal {
+  background-color: #fff;
+  width:40vw;
+  height: 80vh;
+  box-shadow: 5px 3px 3px;
+  position: relative;
+  z-index: 10;
+  margin: 1rem auto;
+  padding-bottom: 2.5rem;
+  letter-spacing: 1.2;
+}
+.summary-modal-bg.summaryModal {
+  visibility: visible;
+}
+.summary-msg h3 {
+  font-size: 1.5rem;
+  text-align: center;
+  padding-top: 1rem;
+}
+.summary-msg img {
+ max-width: 100%;
+ position: absolute;
+ top: 20%;
+ left:30%;
+}
+.sum-img {
+  width: 30%;
+}
+.purchase-summary {
+  font-size: 2rem;
+  position: absolute;
+ top: 65%;
+ left:40%;
+}
+.summary-modal button {
+ font-size: 2rem;
+ position: absolute;
+ bottom: 0;
+ right: 0;
+ padding: .6rem 5rem;
+ background-color: #ff7a00;
+ color:  #fff;
+ border: none;
+ outline: 0;
+ cursor: pointer;
+ border-radius: 6px;
+}
  /* footer style */
  .footer {
    background-color: #000;
